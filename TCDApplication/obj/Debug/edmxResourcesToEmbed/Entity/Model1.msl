@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TCDModelStoreContainer" CdmEntityContainer="TCDEntities">
+    <EntitySetMapping Name="tbl_CustomerDetails">
+      <EntityTypeMapping TypeName="TCDModel.tbl_CustomerDetails">
+        <MappingFragment StoreEntitySet="tbl_CustomerDetails">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CustomerDocuments">
+      <EntityTypeMapping TypeName="TCDModel.tbl_CustomerDocuments">
+        <MappingFragment StoreEntitySet="tbl_CustomerDocuments">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerDetailss" ColumnName="CustomerDetailss" />
+          <ScalarProperty Name="Pan" ColumnName="Pan" />
+          <ScalarProperty Name="Aadhar" ColumnName="Aadhar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CustomerFlatDetails">
+      <EntityTypeMapping TypeName="TCDModel.tbl_CustomerFlatDetails">
+        <MappingFragment StoreEntitySet="tbl_CustomerFlatDetails">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CusFlatId" ColumnName="CusFlatId" />
+          <ScalarProperty Name="TotalFlatSqft" ColumnName="TotalFlatSqft" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CustomerTransactionDetails">
+      <EntityTypeMapping TypeName="TCDModel.tbl_CustomerTransactionDetails">
+        <MappingFragment StoreEntitySet="tbl_CustomerTransactionDetails">
+          <ScalarProperty Name="CustomerTransactionId" ColumnName="CustomerTransactionId" />
+          <ScalarProperty Name="CustFlatId" ColumnName="CustFlatId" />
+          <ScalarProperty Name="Payment1" ColumnName="Payment1" />
+          <ScalarProperty Name="Payment2" ColumnName="Payment2" />
+          <ScalarProperty Name="Payment3" ColumnName="Payment3" />
+          <ScalarProperty Name="Payment4" ColumnName="Payment4" />
+          <ScalarProperty Name="Payment5" ColumnName="Payment5" />
+          <ScalarProperty Name="Payment6" ColumnName="Payment6" />
+          <ScalarProperty Name="Payment7" ColumnName="Payment7" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectDetails">
+      <EntityTypeMapping TypeName="TCDModel.tbl_ProjectDetails">
+        <MappingFragment StoreEntitySet="tbl_ProjectDetails">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectAddress" ColumnName="ProjectAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Login">
+      <EntityTypeMapping TypeName="TCDModel.tbl_Login">
+        <MappingFragment StoreEntitySet="tbl_Login">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

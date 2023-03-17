@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TCDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_CustomerDetails">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerDocuments">
+          <Key>
+            <PropertyRef Name="CustomerDetailss" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CustomerDetailss" Type="int" Nullable="false" />
+          <Property Name="Pan" Type="image" Nullable="false" />
+          <Property Name="Aadhar" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerFlatDetails">
+          <Key>
+            <PropertyRef Name="CusFlatId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CusFlatId" Type="int" Nullable="false" />
+          <Property Name="TotalFlatSqft" Type="int" Nullable="false" />
+          <Property Name="TotalValue" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerTransactionDetails">
+          <Key>
+            <PropertyRef Name="CustomerTransactionId" />
+          </Key>
+          <Property Name="CustomerTransactionId" Type="int" Nullable="false" />
+          <Property Name="CustFlatId" Type="int" Nullable="false" />
+          <Property Name="Payment1" Type="int" Nullable="false" />
+          <Property Name="Payment2" Type="int" Nullable="false" />
+          <Property Name="Payment3" Type="int" Nullable="false" />
+          <Property Name="Payment4" Type="int" Nullable="false" />
+          <Property Name="Payment5" Type="int" Nullable="false" />
+          <Property Name="Payment6" Type="int" Nullable="false" />
+          <Property Name="Payment7" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TCD.dbo.tbl_Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_Login">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectDetails">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProjectAddress" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbl_CustomerDetailed_tbl_CustomerDetails">
+          <End Role="tbl_CustomerDetails" Type="Self.tbl_CustomerDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerDocuments" Type="Self.tbl_CustomerDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerDocuments">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_CustomerDetails_tbl_ProjectDetails">
+          <End Role="tbl_ProjectDetails" Type="Self.tbl_ProjectDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerDetails" Type="Self.tbl_CustomerDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProjectDetails">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerDetails">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_CustomerFlatDetails_tbl_CustomerDetails">
+          <End Role="tbl_CustomerDetails" Type="Self.tbl_CustomerDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerFlatDetails" Type="Self.tbl_CustomerFlatDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFlatDetails">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails">
+          <End Role="tbl_CustomerFlatDetails" Type="Self.tbl_CustomerFlatDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerTransactionDetails" Type="Self.tbl_CustomerTransactionDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerFlatDetails">
+              <PropertyRef Name="CusFlatId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerTransactionDetails">
+              <PropertyRef Name="CustFlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TCDModelStoreContainer">
+          <EntitySet Name="tbl_CustomerDetails" EntityType="Self.tbl_CustomerDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CustomerDocuments" EntityType="Self.tbl_CustomerDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CustomerFlatDetails" EntityType="Self.tbl_CustomerFlatDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CustomerTransactionDetails" EntityType="Self.tbl_CustomerTransactionDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ProjectDetails" EntityType="Self.tbl_ProjectDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Login" EntityType="Self.tbl_Login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Login].[UserId] AS [UserId], 
+    [tbl_Login].[Username] AS [Username], 
+    [tbl_Login].[Password] AS [Password]
+    FROM [dbo].[tbl_Login] AS [tbl_Login]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbl_CustomerDetailed_tbl_CustomerDetails" Association="Self.FK_tbl_CustomerDetailed_tbl_CustomerDetails">
+            <End Role="tbl_CustomerDetails" EntitySet="tbl_CustomerDetails" />
+            <End Role="tbl_CustomerDocuments" EntitySet="tbl_CustomerDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_CustomerDetails_tbl_ProjectDetails" Association="Self.FK_tbl_CustomerDetails_tbl_ProjectDetails">
+            <End Role="tbl_ProjectDetails" EntitySet="tbl_ProjectDetails" />
+            <End Role="tbl_CustomerDetails" EntitySet="tbl_CustomerDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_CustomerFlatDetails_tbl_CustomerDetails" Association="Self.FK_tbl_CustomerFlatDetails_tbl_CustomerDetails">
+            <End Role="tbl_CustomerDetails" EntitySet="tbl_CustomerDetails" />
+            <End Role="tbl_CustomerFlatDetails" EntitySet="tbl_CustomerFlatDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails" Association="Self.FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails">
+            <End Role="tbl_CustomerFlatDetails" EntitySet="tbl_CustomerFlatDetails" />
+            <End Role="tbl_CustomerTransactionDetails" EntitySet="tbl_CustomerTransactionDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TCDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_CustomerDetails">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerDocuments" Relationship="Self.FK_tbl_CustomerDetailed_tbl_CustomerDetails" FromRole="tbl_CustomerDetails" ToRole="tbl_CustomerDocuments" />
+          <NavigationProperty Name="tbl_ProjectDetails" Relationship="Self.FK_tbl_CustomerDetails_tbl_ProjectDetails" FromRole="tbl_CustomerDetails" ToRole="tbl_ProjectDetails" />
+          <NavigationProperty Name="tbl_CustomerFlatDetails" Relationship="Self.FK_tbl_CustomerFlatDetails_tbl_CustomerDetails" FromRole="tbl_CustomerDetails" ToRole="tbl_CustomerFlatDetails" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerDocuments">
+          <Key>
+            <PropertyRef Name="CustomerDetailss" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerDetailss" Type="Int32" Nullable="false" />
+          <Property Name="Pan" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Aadhar" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerDetails" Relationship="Self.FK_tbl_CustomerDetailed_tbl_CustomerDetails" FromRole="tbl_CustomerDocuments" ToRole="tbl_CustomerDetails" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerFlatDetails">
+          <Key>
+            <PropertyRef Name="CusFlatId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CusFlatId" Type="Int32" Nullable="false" />
+          <Property Name="TotalFlatSqft" Type="Int32" Nullable="false" />
+          <Property Name="TotalValue" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerDetails" Relationship="Self.FK_tbl_CustomerFlatDetails_tbl_CustomerDetails" FromRole="tbl_CustomerFlatDetails" ToRole="tbl_CustomerDetails" />
+          <NavigationProperty Name="tbl_CustomerTransactionDetails" Relationship="Self.FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails" FromRole="tbl_CustomerFlatDetails" ToRole="tbl_CustomerTransactionDetails" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerTransactionDetails">
+          <Key>
+            <PropertyRef Name="CustomerTransactionId" />
+          </Key>
+          <Property Name="CustomerTransactionId" Type="Int32" Nullable="false" />
+          <Property Name="CustFlatId" Type="Int32" Nullable="false" />
+          <Property Name="Payment1" Type="Int32" Nullable="false" />
+          <Property Name="Payment2" Type="Int32" Nullable="false" />
+          <Property Name="Payment3" Type="Int32" Nullable="false" />
+          <Property Name="Payment4" Type="Int32" Nullable="false" />
+          <Property Name="Payment5" Type="Int32" Nullable="false" />
+          <Property Name="Payment6" Type="Int32" Nullable="false" />
+          <Property Name="Payment7" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerFlatDetails" Relationship="Self.FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails" FromRole="tbl_CustomerTransactionDetails" ToRole="tbl_CustomerFlatDetails" />
+        </EntityType>
+        <EntityType Name="tbl_ProjectDetails">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProjectAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerDetails" Relationship="Self.FK_tbl_CustomerDetails_tbl_ProjectDetails" FromRole="tbl_ProjectDetails" ToRole="tbl_CustomerDetails" />
+        </EntityType>
+        <EntityType Name="tbl_Login">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbl_CustomerDetailed_tbl_CustomerDetails">
+          <End Role="tbl_CustomerDetails" Type="Self.tbl_CustomerDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerDocuments" Type="Self.tbl_CustomerDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerDocuments">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_CustomerDetails_tbl_ProjectDetails">
+          <End Role="tbl_ProjectDetails" Type="Self.tbl_ProjectDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerDetails" Type="Self.tbl_CustomerDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProjectDetails">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerDetails">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_CustomerFlatDetails_tbl_CustomerDetails">
+          <End Role="tbl_CustomerDetails" Type="Self.tbl_CustomerDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerFlatDetails" Type="Self.tbl_CustomerFlatDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFlatDetails">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails">
+          <End Role="tbl_CustomerFlatDetails" Type="Self.tbl_CustomerFlatDetails" Multiplicity="1" />
+          <End Role="tbl_CustomerTransactionDetails" Type="Self.tbl_CustomerTransactionDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerFlatDetails">
+              <PropertyRef Name="CusFlatId" />
+            </Principal>
+            <Dependent Role="tbl_CustomerTransactionDetails">
+              <PropertyRef Name="CustFlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TCDEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_CustomerDetails" EntityType="Self.tbl_CustomerDetails" />
+          <EntitySet Name="tbl_CustomerDocuments" EntityType="Self.tbl_CustomerDocuments" />
+          <EntitySet Name="tbl_CustomerFlatDetails" EntityType="Self.tbl_CustomerFlatDetails" />
+          <EntitySet Name="tbl_CustomerTransactionDetails" EntityType="Self.tbl_CustomerTransactionDetails" />
+          <EntitySet Name="tbl_ProjectDetails" EntityType="Self.tbl_ProjectDetails" />
+          <EntitySet Name="tbl_Login" EntityType="Self.tbl_Login" />
+          <AssociationSet Name="FK_tbl_CustomerDetailed_tbl_CustomerDetails" Association="Self.FK_tbl_CustomerDetailed_tbl_CustomerDetails">
+            <End Role="tbl_CustomerDetails" EntitySet="tbl_CustomerDetails" />
+            <End Role="tbl_CustomerDocuments" EntitySet="tbl_CustomerDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_CustomerDetails_tbl_ProjectDetails" Association="Self.FK_tbl_CustomerDetails_tbl_ProjectDetails">
+            <End Role="tbl_ProjectDetails" EntitySet="tbl_ProjectDetails" />
+            <End Role="tbl_CustomerDetails" EntitySet="tbl_CustomerDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_CustomerFlatDetails_tbl_CustomerDetails" Association="Self.FK_tbl_CustomerFlatDetails_tbl_CustomerDetails">
+            <End Role="tbl_CustomerDetails" EntitySet="tbl_CustomerDetails" />
+            <End Role="tbl_CustomerFlatDetails" EntitySet="tbl_CustomerFlatDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails" Association="Self.FK_tbl_CustomerTransactionDetails_tbl_CustomerFlatDetails">
+            <End Role="tbl_CustomerFlatDetails" EntitySet="tbl_CustomerFlatDetails" />
+            <End Role="tbl_CustomerTransactionDetails" EntitySet="tbl_CustomerTransactionDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TCDModelStoreContainer" CdmEntityContainer="TCDEntities1">
+          <EntitySetMapping Name="tbl_CustomerDetails">
+            <EntityTypeMapping TypeName="TCDModel.tbl_CustomerDetails">
+              <MappingFragment StoreEntitySet="tbl_CustomerDetails">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CustomerDocuments">
+            <EntityTypeMapping TypeName="TCDModel.tbl_CustomerDocuments">
+              <MappingFragment StoreEntitySet="tbl_CustomerDocuments">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerDetailss" ColumnName="CustomerDetailss" />
+                <ScalarProperty Name="Pan" ColumnName="Pan" />
+                <ScalarProperty Name="Aadhar" ColumnName="Aadhar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CustomerFlatDetails">
+            <EntityTypeMapping TypeName="TCDModel.tbl_CustomerFlatDetails">
+              <MappingFragment StoreEntitySet="tbl_CustomerFlatDetails">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CusFlatId" ColumnName="CusFlatId" />
+                <ScalarProperty Name="TotalFlatSqft" ColumnName="TotalFlatSqft" />
+                <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CustomerTransactionDetails">
+            <EntityTypeMapping TypeName="TCDModel.tbl_CustomerTransactionDetails">
+              <MappingFragment StoreEntitySet="tbl_CustomerTransactionDetails">
+                <ScalarProperty Name="CustomerTransactionId" ColumnName="CustomerTransactionId" />
+                <ScalarProperty Name="CustFlatId" ColumnName="CustFlatId" />
+                <ScalarProperty Name="Payment1" ColumnName="Payment1" />
+                <ScalarProperty Name="Payment2" ColumnName="Payment2" />
+                <ScalarProperty Name="Payment3" ColumnName="Payment3" />
+                <ScalarProperty Name="Payment4" ColumnName="Payment4" />
+                <ScalarProperty Name="Payment5" ColumnName="Payment5" />
+                <ScalarProperty Name="Payment6" ColumnName="Payment6" />
+                <ScalarProperty Name="Payment7" ColumnName="Payment7" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ProjectDetails">
+            <EntityTypeMapping TypeName="TCDModel.tbl_ProjectDetails">
+              <MappingFragment StoreEntitySet="tbl_ProjectDetails">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectAddress" ColumnName="ProjectAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Login">
+            <EntityTypeMapping TypeName="TCDModel.tbl_Login">
+              <MappingFragment StoreEntitySet="tbl_Login">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
