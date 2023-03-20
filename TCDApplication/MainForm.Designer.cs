@@ -67,15 +67,16 @@
             // projectDetailsToolStripMenuItem
             // 
             this.projectDetailsToolStripMenuItem.Name = "projectDetailsToolStripMenuItem";
-            this.projectDetailsToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.projectDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.projectDetailsToolStripMenuItem.Text = "Add";
             this.projectDetailsToolStripMenuItem.Click += new System.EventHandler(this.projectDetailsToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
@@ -89,14 +90,16 @@
             // customerDetailsToolStripMenuItem
             // 
             this.customerDetailsToolStripMenuItem.Name = "customerDetailsToolStripMenuItem";
-            this.customerDetailsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.customerDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customerDetailsToolStripMenuItem.Text = "Add Customer";
+            this.customerDetailsToolStripMenuItem.Click += new System.EventHandler(this.customerDetailsToolStripMenuItem_Click);
             // 
             // searchCustomerToolStripMenuItem
             // 
             this.searchCustomerToolStripMenuItem.Name = "searchCustomerToolStripMenuItem";
-            this.searchCustomerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.searchCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchCustomerToolStripMenuItem.Text = "Search Customer";
+            this.searchCustomerToolStripMenuItem.Click += new System.EventHandler(this.searchCustomerToolStripMenuItem_Click);
             // 
             // customerTransactionToolStripMenuItem
             // 

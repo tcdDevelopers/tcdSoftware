@@ -23,14 +23,52 @@ namespace TCDApplication
         {
             using(entities1 = new TCDEntities1())
             {
-                drd_project.DataSource = from p in entities1.tbl_ProjectDetails
+               var lstCustVal = entities1.tbl_CustomerDetails.Select(x => x.CustomerId).OrderByDescending(z => z).FirstOrDefault();
+                var customerId = lstCustVal + 1;
+                txt_cust_Id.Text = Convert.ToString(customerId);
+
+                var dbsource = (from p in entities1.tbl_ProjectDetails
                                          orderby p.ProjectName
-                                         select new { p.ProjectId, p.ProjectName };
+                                         select new { p.ProjectId, p.ProjectName }).ToList();
                 drd_project.DisplayMember = "ProjectName";
                 drd_project.ValueMember = "ProjectId";
-                
-
+                drd_project.DataSource = dbsource;
             }
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (entities1 = new TCDEntities1())
+                {
+                    tbl_CustomerDetails cd = new tbl_CustomerDetails()
+                    {
+                        CustomerId = Convert.ToInt32(txt_cust_Id.Text.ToString()),
+                        CustomerName = txt_cust_Name.Text.ToString(),
+                        CustomerAddress = txt_cust_Address.Text.ToString(),
+                        CustomerPhone = txt_cust_phone.Text.ToString(),
+                        ProjectId = Convert.ToInt32(drd_project.SelectedValue.ToString())
+                    };
+                    entities1.tbl_CustomerDetails.Add(cd);
+                    entities1.SaveChanges();
+                    MessageBox.Show("Data added successfully");
+                    txt_cust_Name.Clear();
+                    txt_cust_Address.Clear();
+                    txt_cust_phone.Clear();
+                }
+            }
+            catch(Exception ex)
+            {
+                ex.InnerException.ToString();
+            } 
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            txt_cust_Name.Clear();
+            txt_cust_Address.Clear();
+            txt_cust_phone.Clear();
         }
     }
 }

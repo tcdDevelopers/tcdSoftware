@@ -34,6 +34,8 @@ namespace TCDApplication
                 entity.tbl_ProjectDetails.Add(details);
                 entity.SaveChanges();
                 MessageBox.Show("Data saved successfully");
+                txtName.Clear();
+                txtAddress.Clear();
             }
         }
 

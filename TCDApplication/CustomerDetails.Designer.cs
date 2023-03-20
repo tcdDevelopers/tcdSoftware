@@ -50,6 +50,7 @@
             this.btn_Reset.TabIndex = 10;
             this.btn_Reset.Text = "&Reset";
             this.btn_Reset.UseVisualStyleBackColor = true;
+            this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
             // btn_Save
             // 
@@ -59,6 +60,7 @@
             this.btn_Save.TabIndex = 11;
             this.btn_Save.Text = "&Save";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // txt_cust_Address
             // 
@@ -131,6 +133,7 @@
             // 
             // drd_project
             // 
+            this.drd_project.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.drd_project.FormattingEnabled = true;
             this.drd_project.Location = new System.Drawing.Point(162, 130);
             this.drd_project.Name = "drd_project";

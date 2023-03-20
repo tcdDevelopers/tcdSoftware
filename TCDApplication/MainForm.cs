@@ -27,5 +27,23 @@ namespace TCDApplication
         {
 
         }
+
+        private void customerDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerDetails cd = new CustomerDetails();
+            cd.ShowDialog();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProjectDataShow pds = new ProjectDataShow();
+            pds.ShowDialog();
+        }
+
+        private void searchCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerDetailsShow cds = new CustomerDetailsShow();
+            cds.ShowDialog();
+        }
     }
 }
