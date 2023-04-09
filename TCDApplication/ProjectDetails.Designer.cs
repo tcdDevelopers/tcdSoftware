@@ -36,13 +36,15 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
+            this.dgvProject = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProject)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(29, 32);
+            this.label1.Location = new System.Drawing.Point(264, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 18);
             this.label1.TabIndex = 1;
@@ -51,7 +53,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(115, 31);
+            this.txtId.Location = new System.Drawing.Point(350, 37);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(207, 20);
             this.txtId.TabIndex = 2;
@@ -60,7 +62,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(51, 57);
+            this.label2.Location = new System.Drawing.Point(286, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 18);
             this.label2.TabIndex = 1;
@@ -68,7 +70,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(115, 57);
+            this.txtName.Location = new System.Drawing.Point(350, 63);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(207, 20);
             this.txtName.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(37, 85);
+            this.label3.Location = new System.Drawing.Point(272, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 18);
             this.label3.TabIndex = 1;
@@ -85,14 +87,14 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(115, 83);
+            this.txtAddress.Location = new System.Drawing.Point(350, 89);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(207, 20);
             this.txtAddress.TabIndex = 2;
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(115, 119);
+            this.btn_Save.Location = new System.Drawing.Point(350, 125);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
             this.btn_Save.TabIndex = 3;
@@ -102,7 +104,7 @@
             // 
             // btn_Reset
             // 
-            this.btn_Reset.Location = new System.Drawing.Point(247, 119);
+            this.btn_Reset.Location = new System.Drawing.Point(482, 125);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(75, 23);
             this.btn_Reset.TabIndex = 3;
@@ -110,11 +112,21 @@
             this.btn_Reset.UseVisualStyleBackColor = true;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
+            // dgvProject
+            // 
+            this.dgvProject.AllowUserToOrderColumns = true;
+            this.dgvProject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProject.Location = new System.Drawing.Point(12, 154);
+            this.dgvProject.Name = "dgvProject";
+            this.dgvProject.Size = new System.Drawing.Size(849, 283);
+            this.dgvProject.TabIndex = 4;
+            // 
             // ProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 163);
+            this.ClientSize = new System.Drawing.Size(873, 449);
+            this.Controls.Add(this.dgvProject);
             this.Controls.Add(this.btn_Reset);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.txtAddress);
@@ -126,6 +138,7 @@
             this.Name = "ProjectDetails";
             this.Text = "ProjectDetails";
             this.Load += new System.EventHandler(this.ProjectDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProject)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,5 +154,6 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.DataGridView dgvProject;
     }
 }

@@ -58,17 +58,17 @@
     <Compile Include="BL\CustomerDetails.cs" />
     <Compile Include="BL\Login.cs" />
     <Compile Include="BL\ProjecDetails.cs" />
+    <Compile Include="CustomerBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerBooking.Designer.cs">
+      <DependentUpon>CustomerBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomerDetails.Designer.cs">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerDetailsShow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CustomerDetailsShow.Designer.cs">
-      <DependentUpon>CustomerDetailsShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Entity\tbl_CustomerDetails.cs">
       <DependentUpon>TCD.tt</DependentUpon>
@@ -116,12 +116,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectDataShow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProjectDataShow.Designer.cs">
-      <DependentUpon>ProjectDataShow.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProjectDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,20 +123,17 @@
       <DependentUpon>ProjectDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomerBooking.resx">
+      <DependentUpon>CustomerBooking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerDetails.resx">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomerDetailsShow.resx">
-      <DependentUpon>CustomerDetailsShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProjectDataShow.resx">
-      <DependentUpon>ProjectDataShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectDetails.resx">
       <DependentUpon>ProjectDetails.cs</DependentUpon>

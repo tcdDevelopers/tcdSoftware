@@ -53,6 +53,19 @@ namespace TCDApplication
                 var projecId = lastval + 1;
                 txtId.Text = Convert.ToString(projecId);
             }
+
+            using (entity = new TCDEntities1())
+            {
+                var data = (from pr in entity.tbl_ProjectDetails
+                            orderby pr.ProjectId
+                            select new
+                            {
+                                Id = pr.ProjectId,
+                                Name = pr.ProjectName,
+                                Address = pr.ProjectAddress
+                            }).ToList();
+                dgvProject.DataSource = data;
+            }
         }
     }
 }

@@ -36,14 +36,18 @@ namespace TCDApplication
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProjectDataShow pds = new ProjectDataShow();
-            pds.ShowDialog();
+           
         }
 
         private void searchCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomerDetailsShow cds = new CustomerDetailsShow();
-            cds.ShowDialog();
+            
+        }
+
+        private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerBooking cb = new CustomerBooking();
+            cb.ShowDialog();
         }
     }
 }

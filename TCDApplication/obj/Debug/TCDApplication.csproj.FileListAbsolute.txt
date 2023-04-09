@@ -36,5 +36,4 @@ C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.c
 C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.csproj.CopyComplete
 C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.exe
 C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.pdb
-C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.ProjectDataShow.resources
-C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.CustomerDetailsShow.resources
+C:\Users\USER\source\repos\tcdSoftware\TCDApplication\obj\Debug\TCDApplication.CustomerBooking.resources

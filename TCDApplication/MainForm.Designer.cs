@@ -31,13 +31,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerTransactionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,8 +58,7 @@
             // projectToolStripMenuItem
             // 
             this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.projectDetailsToolStripMenuItem,
-            this.searchToolStripMenuItem});
+            this.projectDetailsToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
             this.projectToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.projectToolStripMenuItem.Text = "Project Details";
@@ -71,18 +70,12 @@
             this.projectDetailsToolStripMenuItem.Text = "Add";
             this.projectDetailsToolStripMenuItem.Click += new System.EventHandler(this.projectDetailsToolStripMenuItem_Click);
             // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.searchToolStripMenuItem.Text = "Search";
-            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerDetailsToolStripMenuItem,
-            this.searchCustomerToolStripMenuItem});
+            this.searchCustomerToolStripMenuItem,
+            this.bookingToolStripMenuItem});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
             this.customerToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.customerToolStripMenuItem.Text = "Customer Details";
@@ -98,7 +91,7 @@
             // 
             this.searchCustomerToolStripMenuItem.Name = "searchCustomerToolStripMenuItem";
             this.searchCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.searchCustomerToolStripMenuItem.Text = "Search Customer";
+            this.searchCustomerToolStripMenuItem.Text = "Add Documents";
             this.searchCustomerToolStripMenuItem.Click += new System.EventHandler(this.searchCustomerToolStripMenuItem_Click);
             // 
             // customerTransactionToolStripMenuItem
@@ -120,6 +113,13 @@
             this.expensesToolStripMenuItem.Name = "expensesToolStripMenuItem";
             this.expensesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.expensesToolStripMenuItem.Text = "Expenses";
+            // 
+            // bookingToolStripMenuItem
+            // 
+            this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
+            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bookingToolStripMenuItem.Text = "Booking";
+            this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -152,7 +152,7 @@
         private System.Windows.Forms.ToolStripMenuItem customerTransactionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerTransactionDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem expensesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookingToolStripMenuItem;
     }
 }
